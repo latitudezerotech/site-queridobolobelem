@@ -1,22 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
   {
     text: "Comprei o bolo de formigueiro para o aniversário da minha mãe e ela ficou emocionada. Disse que lembrou da infância dela. É exatamente assim que bolo precisa ser!",
     name: "Ana Clara M.",
-    avatar: "👩",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80",
   },
   {
     text: "Peço toda semana. O sabor é incomparável com qualquer confeitaria de Belém. Você sente que foi feito com amor de verdade. Recomendo muito!",
     name: "Roberto F.",
-    avatar: "👨",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80",
   },
   {
     text: "A entrega foi super rápida e o bolo chegou perfeito. Comprei de última hora para um encontro e todo mundo adorou. Virei cliente fiel!",
     name: "Fernanda S.",
-    avatar: "👩",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80",
   },
 ];
 
@@ -50,8 +51,14 @@ export default function Testimonials() {
                 {t.text}
               </p>
               <div className="flex items-center gap-3.5">
-                <div className="w-[46px] h-[46px] rounded-full bg-gradient-to-br from-caramel to-chocolate flex items-center justify-center text-xl">
-                  {t.avatar}
+                <div className="w-[46px] h-[46px] rounded-full overflow-hidden relative shrink-0">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
+                    sizes="46px"
+                  />
                 </div>
                 <div>
                   <div className="font-bold text-[0.9rem] text-chocolate">

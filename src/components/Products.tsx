@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const products = [
@@ -7,8 +8,7 @@ const products = [
     name: "Bolo de Formigueiro",
     desc: "O clássico de sempre com chocolate granulado. Sabor de infância que nunca sai de moda.",
     price: 65,
-    emoji: "🎂",
-    gradient: "from-[#F5E6D3] to-[#C58B45]",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop&q=80",
     badge: { text: "⭐ Mais Pedido", color: "bg-wine" },
     whatsappMsg: "Olá! Quero encomendar um Bolo de Formigueiro 🎂",
   },
@@ -16,8 +16,7 @@ const products = [
     name: "Bolo de Chocolate",
     desc: "Irresistível massa de chocolate com cobertura cremosa. Para quem ama o clássico.",
     price: 70,
-    emoji: "🍫",
-    gradient: "from-[#8B4513] to-[#D2691E]",
+    image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=600&fit=crop&q=80",
     badge: { text: "Especial", color: "bg-gold text-chocolate" },
     whatsappMsg: "Olá! Quero encomendar um Bolo de Chocolate 🍫",
   },
@@ -25,8 +24,7 @@ const products = [
     name: "Bolo de Limão",
     desc: "Refrescante e delicioso. A acidez do limão em perfeita harmonia com a massa macia.",
     price: 65,
-    emoji: "🍋",
-    gradient: "from-[#F5E6D3] to-[#FFD700]",
+    image: "https://images.unsplash.com/photo-1519869325930-281384f7e56d?w=600&h=600&fit=crop&q=80",
     badge: null,
     whatsappMsg: "Olá! Quero encomendar um Bolo de Limão 🍋",
   },
@@ -34,8 +32,7 @@ const products = [
     name: "Bolo de Coco",
     desc: "Cremoso e aromático. Com coco fresco ralado na massa e na cobertura.",
     price: 68,
-    emoji: "🥥",
-    gradient: "from-[#DEB887] to-[#8B7355]",
+    image: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=600&h=600&fit=crop&q=80",
     badge: null,
     whatsappMsg: "Olá! Quero encomendar um Bolo de Coco 🥥",
   },
@@ -43,8 +40,7 @@ const products = [
     name: "Bolo de Cenoura",
     desc: "Com calda de chocolate por cima. O favorito do café da tarde para toda a família.",
     price: 62,
-    emoji: "🍮",
-    gradient: "from-[#C58B45] to-[#8B4513]",
+    image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&h=600&fit=crop&q=80",
     badge: { text: "Pronta Entrega", color: "bg-whatsapp" },
     whatsappMsg: "Olá! Quero encomendar um Bolo de Cenoura 🍮",
   },
@@ -52,8 +48,7 @@ const products = [
     name: "Bolo com Frutas",
     desc: "Decorado com frutas frescas da estação. Para datas especiais e presentear com carinho.",
     price: 80,
-    emoji: "🍓",
-    gradient: "from-[#FF6B6B] to-[#FF8E8E]",
+    image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=600&fit=crop&q=80",
     badge: null,
     whatsappMsg: "Olá! Quero encomendar um Bolo com Frutas 🍓",
   },
@@ -87,15 +82,17 @@ export default function Products() {
         {products.map((product) => (
           <ScrollReveal key={product.name}>
             <div className="bg-white rounded-3xl overflow-hidden shadow-card transition-all duration-[350ms] cursor-pointer hover:-translate-y-2 hover:shadow-cake-hover group">
-              <div
-                className={`aspect-square bg-gradient-to-br ${product.gradient} flex items-center justify-center text-7xl relative overflow-hidden`}
-              >
-                <span className="transition-transform duration-500 group-hover:scale-110">
-                  {product.emoji}
-                </span>
+              <div className="aspect-square relative overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                />
                 {product.badge && (
                   <span
-                    className={`absolute top-3.5 left-3.5 ${product.badge.color} text-white text-[0.7rem] font-bold tracking-[0.08em] uppercase px-3 py-1 rounded-full`}
+                    className={`absolute top-3.5 left-3.5 ${product.badge.color} text-white text-[0.7rem] font-bold tracking-[0.08em] uppercase px-3 py-1 rounded-full z-1`}
                   >
                     {product.badge.text}
                   </span>

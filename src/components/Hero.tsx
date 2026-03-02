@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
@@ -54,14 +56,35 @@ export default function Hero() {
       {/* Image Grid */}
       <div className="relative flex items-center justify-center px-[4%] lg:px-0 lg:pr-[6%] pb-16 lg:pb-0 animate-fade-in-right">
         <div className="grid grid-cols-2 gap-4 max-w-[480px] w-full">
-          <div className="row-span-2 rounded-[20px] overflow-hidden shadow-cake bg-gradient-to-br from-chocolate to-caramel min-h-[300px] flex items-center justify-center">
-            <span className="text-6xl animate-float">&#127874;</span>
+          <div className="row-span-2 rounded-[20px] overflow-hidden shadow-cake min-h-[300px] relative">
+            <Image
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=800&fit=crop&q=80"
+              alt="Bolo de chocolate decorado"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 1024px) 50vw, 240px"
+              priority
+            />
           </div>
-          <div className="rounded-[20px] overflow-hidden shadow-cake bg-gradient-to-br from-nude to-caramel aspect-square flex items-center justify-center">
-            <span className="text-5xl animate-float" style={{ animationDelay: '0.5s' }}>&#127856;</span>
+          <div className="rounded-[20px] overflow-hidden shadow-cake aspect-square relative">
+            <Image
+              src="https://images.unsplash.com/photo-1486427944544-d2c246c4df14?w=400&h=400&fit=crop&q=80"
+              alt="Fatia de bolo caseiro"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 1024px) 50vw, 230px"
+              priority
+            />
           </div>
-          <div className="rounded-[20px] overflow-hidden shadow-cake bg-gradient-to-br from-caramel-light to-chocolate aspect-square flex items-center justify-center">
-            <span className="text-5xl animate-float" style={{ animationDelay: '1s' }}>&#129473;</span>
+          <div className="rounded-[20px] overflow-hidden shadow-cake aspect-square relative">
+            <Image
+              src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=400&h=400&fit=crop&q=80"
+              alt="Cupcakes artesanais"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 1024px) 50vw, 230px"
+              priority
+            />
           </div>
         </div>
       </div>

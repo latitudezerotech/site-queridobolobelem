@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const benefits = [
@@ -24,40 +25,55 @@ export default function Benefits() {
   return (
     <section
       id="beneficios"
-      className="px-[5%] lg:px-[6%] py-20 lg:py-[100px] bg-chocolate text-center relative overflow-hidden"
+      className="relative overflow-hidden"
     >
-      {/* Decorative glow */}
-      <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_at_center,rgba(197,139,69,0.15)_0%,transparent_60%)] pointer-events-none" />
-
-      <div className="mb-16 relative z-1">
-        <p className="text-[0.78rem] font-bold tracking-[0.15em] uppercase text-gold mb-4">
-          Por que escolher o Querido Bolo
-        </p>
-        <h2 className="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white mb-5">
-          Mais que um bolo —
-          <br />
-          uma <em className="italic text-caramel">experiência</em>
-        </h2>
-        <p className="text-[1.05rem] leading-relaxed text-white/70 max-w-[540px] mx-auto font-light">
-          Não vendemos apenas bolo. Entregamos memória afetiva, carinho e sabor
-          verdadeiro na sua porta.
-        </p>
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=1920&h=900&fit=crop&q=80"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-chocolate/90" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-1">
-        {benefits.map((b) => (
-          <ScrollReveal key={b.title}>
-            <div className="px-8 py-10 border border-caramel/20 rounded-3xl bg-white/[0.04] transition-all duration-300 hover:bg-white/[0.08] hover:border-caramel/40 hover:-translate-y-1">
-              <span className="text-[2.8rem] block mb-5">{b.icon}</span>
-              <div className="font-playfair text-[1.3rem] font-semibold text-white mb-3">
-                {b.title}
+      <div className="relative px-[5%] lg:px-[6%] py-20 lg:py-[100px] text-center">
+        {/* Decorative glow */}
+        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_at_center,rgba(197,139,69,0.15)_0%,transparent_60%)] pointer-events-none" />
+
+        <div className="mb-16 relative z-1">
+          <p className="text-[0.78rem] font-bold tracking-[0.15em] uppercase text-gold mb-4">
+            Por que escolher o Querido Bolo
+          </p>
+          <h2 className="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white mb-5">
+            Mais que um bolo —
+            <br />
+            uma <em className="italic text-caramel">experiência</em>
+          </h2>
+          <p className="text-[1.05rem] leading-relaxed text-white/70 max-w-[540px] mx-auto font-light">
+            Não vendemos apenas bolo. Entregamos memória afetiva, carinho e sabor
+            verdadeiro na sua porta.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-1">
+          {benefits.map((b) => (
+            <ScrollReveal key={b.title}>
+              <div className="px-8 py-10 border border-caramel/20 rounded-3xl bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.08] hover:border-caramel/40 hover:-translate-y-1">
+                <span className="text-[2.8rem] block mb-5">{b.icon}</span>
+                <div className="font-playfair text-[1.3rem] font-semibold text-white mb-3">
+                  {b.title}
+                </div>
+                <div className="text-[0.9rem] leading-relaxed text-white/60">
+                  {b.desc}
+                </div>
               </div>
-              <div className="text-[0.9rem] leading-relaxed text-white/60">
-                {b.desc}
-              </div>
-            </div>
-          </ScrollReveal>
-        ))}
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );

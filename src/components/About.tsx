@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const values = [
@@ -29,8 +30,14 @@ export default function About() {
       {/* Visual */}
       <ScrollReveal>
         <div className="relative">
-          <div className="w-full rounded-3xl aspect-[4/5] bg-gradient-to-br from-nude to-caramel flex items-center justify-center shadow-cake-lg overflow-hidden">
-            <span className="text-[8rem] animate-float drop-shadow-[0_12px_40px_rgba(78,52,46,0.25)]">&#127874;</span>
+          <div className="w-full rounded-3xl aspect-[4/5] shadow-cake-lg overflow-hidden relative">
+            <Image
+              src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=750&fit=crop&q=80"
+              alt="Preparo artesanal de bolo"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
           <div className="absolute -bottom-8 -right-4 lg:-right-8 bg-chocolate text-white px-7 py-6 rounded-[20px] shadow-[0_20px_50px_rgba(78,52,46,0.3)] text-center">
             <div className="font-playfair text-[2.8rem] font-bold text-caramel leading-none">
