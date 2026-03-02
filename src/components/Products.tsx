@@ -24,7 +24,7 @@ const products = [
     name: "Bolo de Limão",
     desc: "Refrescante e delicioso. A acidez do limão em perfeita harmonia com a massa macia.",
     price: 65,
-    image: "https://images.unsplash.com/photo-1519869325930-281384f7e56d?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&h=600&fit=crop&q=80",
     badge: null,
     whatsappMsg: "Olá! Quero encomendar um Bolo de Limão 🍋",
   },

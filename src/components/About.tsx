@@ -32,8 +32,8 @@ export default function About() {
         <div className="relative">
           <div className="w-full rounded-3xl aspect-[4/5] shadow-cake-lg overflow-hidden relative">
             <Image
-              src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=750&fit=crop&q=80"
-              alt="Preparo artesanal de bolo"
+              src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=600&h=750&fit=crop&q=80"
+              alt="Confeiteira preparando bolo artesanal"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

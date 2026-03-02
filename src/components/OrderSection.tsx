@@ -101,7 +101,7 @@ export default function OrderSection() {
           {/* Decorative image below steps */}
           <div className="mt-10 rounded-[20px] overflow-hidden shadow-cake relative h-[200px] hidden lg:block">
             <Image
-              src="https://images.unsplash.com/photo-1486427944544-d2c246c4df14?w=800&h=300&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&h=300&fit=crop&q=80"
               alt="Bolos artesanais variados"
               fill
               className="object-cover"

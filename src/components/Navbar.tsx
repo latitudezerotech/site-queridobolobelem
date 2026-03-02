@@ -15,11 +15,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-9999 flex items-center justify-between px-[6%] py-4 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-9999 flex items-center justify-between px-[6%] py-4 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(78,52,46,0.1)]"
-          : "bg-white/95 backdrop-blur-xl"
-      } border-b border-chocolate/8`}
+          ? "bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(78,52,46,0.1)] border-b border-chocolate/8"
+          : "bg-transparent border-b border-transparent"
+      }`}
     >
       <a href="#inicio" className="flex items-center gap-2.5">
         <Image
@@ -27,10 +27,21 @@ export default function Navbar() {
           alt="Querido Bolo Belém"
           width={48}
           height={48}
-          className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-md"
+          className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-md transition-all duration-500"
         />
-        <span className="font-playfair text-[1.3rem] font-bold text-chocolate tracking-wide">
-          Querido <span className="text-caramel">Bolo</span>
+        <span
+          className={`font-playfair text-[1.3rem] font-bold tracking-wide transition-colors duration-500 ${
+            scrolled ? "text-chocolate" : "text-white"
+          }`}
+        >
+          Querido{" "}
+          <span
+            className={`transition-colors duration-500 ${
+              scrolled ? "text-caramel" : "text-caramel-light"
+            }`}
+          >
+            Bolo
+          </span>
         </span>
       </a>
 
@@ -39,7 +50,11 @@ export default function Navbar() {
         <li>
           <a
             href="#sobre"
-            className="text-chocolate text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline hover:text-caramel transition-colors duration-300"
+            className={`text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline transition-colors duration-300 ${
+              scrolled
+                ? "text-chocolate hover:text-caramel"
+                : "text-white/80 hover:text-white"
+            }`}
           >
             Nossa História
           </a>
@@ -47,7 +62,11 @@ export default function Navbar() {
         <li>
           <a
             href="#produtos"
-            className="text-chocolate text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline hover:text-caramel transition-colors duration-300"
+            className={`text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline transition-colors duration-300 ${
+              scrolled
+                ? "text-chocolate hover:text-caramel"
+                : "text-white/80 hover:text-white"
+            }`}
           >
             Produtos
           </a>
@@ -55,7 +74,11 @@ export default function Navbar() {
         <li>
           <a
             href="#pedido"
-            className="text-chocolate text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline hover:text-caramel transition-colors duration-300"
+            className={`text-[0.88rem] font-normal tracking-[0.08em] uppercase no-underline transition-colors duration-300 ${
+              scrolled
+                ? "text-chocolate hover:text-caramel"
+                : "text-white/80 hover:text-white"
+            }`}
           >
             Fazer Pedido
           </a>
@@ -77,18 +100,30 @@ export default function Navbar() {
         aria-label="Menu"
       >
         <span
-          className={`block w-6 h-0.5 bg-chocolate transition-all duration-300 ${
-            mobileOpen ? "rotate-45 translate-y-2" : ""
+          className={`block w-6 h-0.5 transition-all duration-300 ${
+            mobileOpen
+              ? "rotate-45 translate-y-2 bg-chocolate"
+              : scrolled
+                ? "bg-chocolate"
+                : "bg-white"
           }`}
         />
         <span
-          className={`block w-6 h-0.5 bg-chocolate transition-all duration-300 ${
-            mobileOpen ? "opacity-0" : ""
+          className={`block w-6 h-0.5 transition-all duration-300 ${
+            mobileOpen
+              ? "opacity-0 bg-chocolate"
+              : scrolled
+                ? "bg-chocolate"
+                : "bg-white"
           }`}
         />
         <span
-          className={`block w-6 h-0.5 bg-chocolate transition-all duration-300 ${
-            mobileOpen ? "-rotate-45 -translate-y-2" : ""
+          className={`block w-6 h-0.5 transition-all duration-300 ${
+            mobileOpen
+              ? "-rotate-45 -translate-y-2 bg-chocolate"
+              : scrolled
+                ? "bg-chocolate"
+                : "bg-white"
           }`}
         />
       </button>
